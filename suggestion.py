@@ -16,9 +16,13 @@ class SuggestionManager:
     def get_best_friends(self, id, n=1):
         """ """
         try:
-            user = self.h.get_facebook_user(id)
-            print user
-            return list()
+            scores = dict()
+            friends, user, fids = list(), self.h.get_facebook_user(id),self.h.get_facebook_user_friends(id)
+            #print user
+            for fid in fids:
+                friend = self.h.get_facebook_user(fid)
+                scores[friend.name] = algorithms.get_name_compatibility(user.name,friend.name)    
+            return scores
         except Exception as e:
             ex = model.AppException(e.message)
             raise ex

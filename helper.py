@@ -56,8 +56,11 @@ class FacebookHelper:
     def get_facebook_user_friends(self,id):
         """ """
         try:
+            out = list()
             friends = self.connector.get_friends(id)
-            print friends
+            for friend in friends["data"]:
+                out.append(str(friend["id"]))
+            return out
         except Exception as e:
             ex = model.AppException("Error while getting Facebook user's friends:"+e.message)
             raise ex
