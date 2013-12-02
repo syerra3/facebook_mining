@@ -1,5 +1,5 @@
 # first commit
-__name__ = "core"
+__name__ = "model"
 
 
 class AppException(Exception):

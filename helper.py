@@ -1,7 +1,7 @@
 __name__= "helper"
 
-import core
-import connector
+import core.connector as connector
+import core.model as model
 import datetime
 class FacebookHelper:
     """ """
@@ -10,14 +10,14 @@ class FacebookHelper:
         try:
             self.connector = connector.FacebookConnector()
         except:
-            ex = core.AppException("Error while creating Facebook connector")
+            ex = model.AppException("Error while creating Facebook connector")
             raise ex
 
     def get_facebook_user(self,id):
         """ """
         try:
             profile = self.connector.get_user(id)
-            out = core.User()
+            out = model.User()
             out.name = profile["name"]
             if "gender" in profile.keys():
                 out.gender = profile["gender"]
@@ -50,7 +50,7 @@ class FacebookHelper:
                 out.location = location["name"]
             return out
         except Exception as e:
-            ex = core.AppException('Error while geting Facebook user:'+e.message)
+            ex = model.AppException('Error while geting Facebook user:'+e.message)
             raise ex
 
     def get_facebook_user_friends(self,id):
@@ -59,7 +59,7 @@ class FacebookHelper:
             friends = self.connector.get_friends(id)
             print friends
         except Exception as e:
-            ex = core.AppException("Error while getting Facebook user's friends:"+e.message)
+            ex = model.AppException("Error while getting Facebook user's friends:"+e.message)
             raise ex
         
     
