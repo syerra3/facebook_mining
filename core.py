@@ -33,4 +33,3 @@ class User:
                    +self.relationship_status+', '+self.hometown+', '
                    +self.location)
         
-        

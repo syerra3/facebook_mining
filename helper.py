@@ -50,7 +50,16 @@ class FacebookHelper:
                 out.location = location["name"]
             return out
         except Exception as e:
-            ex = core.AppException("Error while geting Facebook user:"+e.message)
-            raise ex 
+            ex = core.AppException('Error while geting Facebook user:'+e.message)
+            raise ex
+
+    def get_facebook_user_friends(self,id):
+        """ """
+        try:
+            friends = self.connector.get_friends(id)
+            print friends
+        except Exception as e:
+            ex = core.AppException("Error while getting Facebook user's friends:"+e.message)
+            raise ex
         
     

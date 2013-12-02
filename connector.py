@@ -4,7 +4,7 @@ import facebook
 
 class FacebookConnector:
     """ """
-    ACCESS_TOKEN = 'CAAUpFj9N2IEBANZC2YgCd6ZAUW8YYMPMThsEzkRQsZBcVtUlzGy76wEZAZCZCWl9CeiaYGsmNdLkdzHSnC9acRXvnWwE3eFJF3cveOXc3V839D5eQJ1Y1SVeXoiAazVpyqpyKRSrSk1KZCBpXYlVKamqTunnj3CqHjC1jtV5TroLHidlsxYP7T8DMzx9WC9fJ0ZD'
+    ACCESS_TOKEN = 'CAAUpFj9N2IEBAF4ykOEqZBiry9TnhVF4Xzd7sE4lBb2wiU1S91RYQgsWHVePvUEKMvtmfcMbRqksK6hTy05S5wUlA0lWcqGyK89FWb6DjRlFQJQpZBbsSxkhkBnwi5YqV99x1KZBNzBcXJ8KPXXtwNoQTf9YqZCDOGvThZBYCiHdZA5u0xzyX5870XCMZACfhkZD'
     def __init__(self):
         """ """
         try:
@@ -19,5 +19,15 @@ class FacebookConnector:
             return out
         except:
             raise
+
+    def get_friends(self,id):
+        """ """
+        try:
+            out = self.graph.get_connections(id,"friends")
+            return out
+        except Exception as e:
+            raise e
+
+    
             
         
