@@ -19,14 +19,19 @@ class FacebookHelper:
             profile = self.connector.get_user(id)
             out = core.User()
             out.name = profile["name"]
-            out.gender = profile["gender"]
-            out.relationship_status = profile["relationship_status"]
-            out.religion = profile["religion"]
-            out.birthday = datetime.datetime.strptime(profile['birthday'], "%m/%d/%Y").date()
-            hometown = profile["hometown"]
-            out.hometown = hometown["name"]
-            out.favorite_athletes = list()
+            if "gender" in profile.keys():
+                out.gender = profile["gender"]
+            if "relationship_status" in profile.keys():
+                out.relationship_status = profile["relationship_status"]
+            if "religion" in profile.keys():
+                out.religion = profile["religion"]
+            if "birthday" in profile.keys():
+                out.birthday = datetime.datetime.strptime(profile['birthday'], "%m/%d/%Y").date()
+            if "hometown" in profile.keys():
+                hometown = profile["hometown"]
+                out.hometown = hometown["name"]
             if "favorite_athletes" in profile.keys():
+                out.favorite_athletes = list()
                 favorite_athletes = profile["favorite_athletes"]
                 for athlet in favorite_athletes:
                     out.favorite_athletes.append(str(athlet["name"]))
@@ -40,8 +45,9 @@ class FacebookHelper:
                 out.sports = list()
                 for sport in sports:
                     out.sports.append(str(sport["name"]))
-            location = profile["location"]
-            out.location = location["name"]
+            if "location" in profile.keys():
+                location = profile["location"]
+                out.location = location["name"]
             return out
         except Exception as e:
             ex = core.AppException("Error while geting Facebook user:"+e.message)
