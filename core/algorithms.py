@@ -41,13 +41,13 @@ def sum_digits(n):
         n /= 10
     return s
 
-def get_chaldean_score(name):
+def get_chaldean_number(name):
     """ """
     if name == None:
         return 0
     score = 0
     for c in name.lower():
-        if c.isalpha():
+        if c.isalpha() and c in chaldean_numerology.keys():
             score += chaldean_numerology[c]
     while score >=10:
         score = sum_digits(score)
@@ -119,15 +119,15 @@ def get_zodiac_sign(date):
         else:
             return 'Pisces'
 
-def get_zodiac_compatibility(sign1 ,sign2):
+def get_zodiac_compatibility(date1 ,date2):
     """ """
-    scores = zodiac_scores[zodiac_signs[sign1]]
-    return scores[zodiac_signs[sign2]]
+    scores = zodiac_scores[zodiac_signs[get_zodiac_sign(date1)]]
+    return scores[zodiac_signs[get_zodiac_sign(date2)]]
 
 def get_name_compatibility(name1 , name2):
     """ """
-    scores = chaldean_scores[get_chaldean_score(name1)]
-    return scores[get_chaldean_score(name2)]
+    scores = chaldean_scores[get_chaldean_number(name1)]
+    return scores[get_chaldean_number(name2)]
     
 
 #print zodiac_signs['Pisces'],zodiac_signs['Aries'],zodiac_signs['Aquarius'],zodiac_signs['Capricorn'],zodiac_signs['Sagittarius'],zodiac_signs['Scorpio']

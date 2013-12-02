@@ -26,7 +26,8 @@ class FacebookHelper:
             if "religion" in profile.keys():
                 out.religion = profile["religion"]
             if "birthday" in profile.keys():
-                out.birthday = datetime.datetime.strptime(profile['birthday'], "%m/%d/%Y").date()
+                if len(profile['birthday']) > 5:
+                    out.birthday = datetime.datetime.strptime(profile['birthday'], "%m/%d/%Y").date()
             if "hometown" in profile.keys():
                 hometown = profile["hometown"]
                 out.hometown = hometown["name"]
