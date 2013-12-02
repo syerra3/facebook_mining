@@ -4,7 +4,7 @@ import facebook
 
 class FacebookConnector:
     """ """
-    ACCESS_TOKEN = 'CAAHZAkpHNzZBEBACHIXx3zOZAFkCVGITVXhOUDIbFK60oSuRmrnRr3g7Noze4NyavONUSEdmYfAIIoZA2v04dzH3LgmHwCCZBNc7v9xuTwEgrDpFc8UnpDYegIZBdvSQAkpQdx3KOec3o1tGZArTpijPqoIyGsoTiAuBOohc6s6f9OdBkbr5PbcKZAQLraazSOYkovMwnBjQoAZDZD'
+    ACCESS_TOKEN = 'CAAHZAkpHNzZBEBAHwNpIy1mRHgGrM5Cdtqbyp788dkD9ch557MboJ6rJ8Nr1xg34pPWzffOSu5BC0ZCtZAWbrc6yTQG8wCi544xnfBzgHo3Gjsg3maglSPVg31i4lvIlkI0ACWMngNC8UOHbGa8u7I6pi0S6DKBnj0SWs9N4ZAHTPuyVc5ALPCsPuP2qhxtIclDvcjWikmgZDZD'
     def __init__(self):
         """ """
         try:

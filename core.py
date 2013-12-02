@@ -18,6 +18,8 @@ class User:
         self.gender = ''
         self.relationship_status = ''
         self.hometown = ''
+        self.location = ''
+        self.religion = ''
         self.birthday = None
         self.favorite_athletes = None
         self.education = None
@@ -27,6 +29,8 @@ class User:
 
     def __str__(self):
         """ """
-        return str(self.name +','+self.gender+','+self.relationship_status)
+        return str(self.name +', '+self.religion+', '+self.gender+', '
+                   +self.relationship_status+', '+self.hometown+', '
+                   +self.location)
         
         
