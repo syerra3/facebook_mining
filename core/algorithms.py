@@ -53,82 +53,21 @@ def get_chaldean_number(name):
         score = sum_digits(score)
     return score
 
-            
-def get_zodiac_sign(date):
+def get_zodiac_compatibility(sign1 ,sign2):
     """ """
-    if date == None:
-        return ''
-    if date.month == 3: #March
-        if date.day <= 20:
-            return 'Pisces'
-        else:
-            return 'Aries'
-    if date.month == 4: #April
-        if date.day <=19:
-            return 'Aries'
-        else:
-            return 'Taurus'
-    if date.month == 5: #May
-        if date.day <=20:
-            return 'Taurus'
-        else:
-            return 'Gemini'
-    if date.month == 6: #June
-        if date.day <= 20:
-            return 'Gemini'
-        else:
-            return 'Cancer'
-    if date.month == 7: #July
-        if date.day <= 22:
-            return 'Cancer'
-        else:
-            return 'Leo'
-    if date.month == 8: #August
-        if date.day <= 22:
-            return 'Leo'
-        else:
-            return 'Virgo'
-    if date.month == 9: #September
-        if date.day <= 22:
-            return 'Virgo'
-        else:
-            return 'Libra'
-    if date.month == 10: #October
-        if date.day <= 22:
-            return 'Libra'
-        else:
-            return 'Scorpio'
-    if date.month == 11: #November
-        if date.day <= 21:
-            return 'Scorpio'
-        else:
-            return 'Sagittarius'
-    if date.month == 12: #December
-        if date.day <= 21:
-            return 'Sagittarius'
-        else:
-            return 'Capricorn'
-    if date.month == 1: #January
-        if date.day <= 19:
-            return 'Capricorn'
-        else:
-            return 'Aquarius'
-    if date.month == 2: #Feb
-        if date.day <= 18:
-            return 'Aquarius'
-        else:
-            return 'Pisces'
-
-def get_zodiac_compatibility(date1 ,date2):
-    """ """
-    scores = zodiac_scores[zodiac_signs[get_zodiac_sign(date1)]]
-    return scores[zodiac_signs[get_zodiac_sign(date2)]]
+    scores = zodiac_scores[zodiac_signs[sign1]]
+    return scores[zodiac_signs[sign2]]
 
 def get_name_compatibility(name1 , name2):
     """ """
     scores = chaldean_scores[get_chaldean_number(name1)]
     return scores[get_chaldean_number(name2)]
-    
+
+def get_similarity(list1 ,list2):
+    """ """
+    set1,set2 = set(list1), set(list2)
+    total, similarity = len(set1),  len(set1.intersection(set2))
+    return  (similarity * 10.0 ) / total
 
 #print zodiac_signs['Pisces'],zodiac_signs['Aries'],zodiac_signs['Aquarius'],zodiac_signs['Capricorn'],zodiac_signs['Sagittarius'],zodiac_signs['Scorpio']
 #print get_zodiac_compatibility('Pisces','Aries')

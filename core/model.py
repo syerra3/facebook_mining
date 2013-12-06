@@ -14,22 +14,22 @@ class User:
     """ """
     def __init__(self):
         """ """
-        self.name = ''
-        self.gender = ''
-        self.relationship_status = ''
-        self.hometown = ''
-        self.location = ''
-        self.religion = ''
+        self.name = None
+        self.gender = None
+        self.relationship_status = None
+        self.hometown = None
+        self.location = None
+        self.religion = None
         self.birthday = None
+        self.zodiac = None
         self.favorite_athletes = None
         self.education = None
         self.sports = None
         self.languages = None
         self.work = None
-
+        self.favorite_teams = None
+    
     def __str__(self):
         """ """
-        return str(self.name +', '+self.religion+', '+self.gender+', '
-                   +self.relationship_status+', '+self.hometown+', '
-                   +self.location)
+        return str(self.name)
         

@@ -38,14 +38,34 @@ class SuggestionManager:
         try:
             scores = dict()
             friends, user, fids = list(), self.h.get_facebook_user(id),self.h.get_facebook_user_friends(id)
-            print user
+            print user.name, user.zodiac
+            print user.sports
+            print user.favorite_athletes
+            print user.favorite_teams
+            print '------------------'
             for fid in fids:
                 friend = self.h.get_facebook_user(fid)
-                if friend.gender == 'female' and (friend.relationship_status == 'Single' or friend.relationship_status == ''):
-                    print friend.name, 'Name compatibility :',algorithms.get_name_compatibility(user.name,friend.name)
+                print friend.name,friend.gender, friend.relationship_status, friend.religion, friend.hometown, friend.location, friend.zodiac
+                print friend.birthday
+                print friend.favorite_athletes
+                print friend.favorite_teams
+                print friend.languages
+                print 'Name compatibility: ',algorithms.get_name_compatibility(user.name,friend.name)
+                if user.zodiac is not None and friend.zodiac is not None:
+                    print 'Zodiac compatibility: ',algorithms.get_zodiac_compatibility(user.zodiac,friend.zodiac)
+                if user.sports is not None and friend.sports is not None:
+                    print 'Sports compatibility: ',algorithms.get_similarity(user.sports, friend.sports)
+                if user.favorite_athletes is not None and friend.favorite_athletes is not None:
+                    print 'Athlet compatibility: ',algorithms.get_similarity(user.favorite_athletes, friend.favorite_athletes)
+                if user.languages is not None and friend.languages is not None:
+                    print 'Language compatibility: ',algorithms.get_similarity(user.languages, friend.languages)
+                print '----------------------'
+                #if friend.gender == 'female' and (friend.relationship_status == 'Single' or friend.relationship_status == ''):
+                #    print friend.name, '(Name compatibility :',algorithms.get_name_compatibility(user.name,friend.name),')'
             return scores
         except Exception as e:
-            ex = model.AppException('Exception occured at get_best_friends:'+e.message)
+            
+            ex = model.AppException('Exception occured at get_best_match:'+e.message)
             raise ex
         
     
