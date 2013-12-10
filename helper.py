@@ -85,6 +85,7 @@ class FacebookHelper:
             profile = self.connector.get_user(id)
             out = model.User()
             out.name = unicodedata.normalize('NFKD', profile["name"]).encode('ascii','ignore')
+            out.id = unicodedata.normalize('NFKD', profile["id"]).encode('ascii','ignore') 
             if "gender" in profile.keys():
                 out.gender = unicodedata.normalize('NFKD', profile["gender"]).encode('ascii','ignore')
             if "relationship_status" in profile.keys():
@@ -120,6 +121,14 @@ class FacebookHelper:
                 out.favorite_teams = list()
                 for team in favorite_teams:
                     out.favorite_teams.append(unicodedata.normalize('NFKD', team["name"]).encode('ascii','ignore'))
+            if "work" in profile.keys():
+                work = profile["work"]
+                if "position" in work[0].keys():
+                    out.work = work[0]["position"]["name"]
+            if "education" in profile.keys():
+                education = profile["education"]
+                out.education =  education[len(education)-1]["type"]
+            print profile 
             return out
         except Exception as e:
             ex = model.AppException('Error while geting Facebook user:'+e.message)
@@ -137,4 +146,11 @@ class FacebookHelper:
         except Exception as e:
             ex = model.AppException("Error while getting Facebook user's friends:"+e.message)
             raise ex
-        
+
+    def execute_facebook_fql(self,fql):
+        """ """
+        try:
+            print self.connector.execute_fql(fql)
+        except Exception as e:
+            ex = model.AppException("Error while getting Facebook FQL:"+e.message)
+            raise ex 

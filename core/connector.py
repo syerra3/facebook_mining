@@ -4,7 +4,7 @@ import facebook
 
 class FacebookConnector:
     """ """
-    ACCESS_TOKEN = 'CAAHZAkpHNzZBEBAKKomd1b4lPagtRXtZB4ZAqfTRZCDHCuf3582iYIiuK12HwKNjCCzkuOhtCy3w4pZAGe5vAsjKjBx35CMXLTriZCZB8Vc5RR1wpZASQCZAksLD0brvLLb5ZAHoQ1QSdQmPLVz8OYdosZARZBQP27bOMubTgww2sZB6ZAcwia2LiJLZBom5MqHBeav1vPJRdFflX2wo0QZDZD'
+    ACCESS_TOKEN = 'CAAHZAkpHNzZBEBAFaZBGLsC8DdK3c12WmZA1iiyli7zHLD3rwO53n9o3PUiYDt5nZCfWEcd7tZASMi0yZC7BZB3BFWfgZAUZCL1IgLbMfTIfprf1n7AZBBpEpUhDbSLqZBiB0awB50DOE5bjZCtYll5txKdcNK4LaBqinjZCZAf97zVI480LvJ9cjaH3oKMxO2zZAL39HkeRk9oycXGAJAZDZD'
     def __init__(self):
         """ """
         try:
@@ -16,6 +16,7 @@ class FacebookConnector:
         """ """
         try:
             out = self.graph.get_object(id)
+            #print out
             return out
         except facebook.GraphAPIError as e:
             raise e 
@@ -28,6 +29,15 @@ class FacebookConnector:
         except facebook.GraphAPIError as e:
             raise e
 
-    
+    def execute_fql(self, query):
+        """ """
+        try:
+            out = self.graph.fql(query)
+            return out
+        except facebook.GraphAPIError as ge:
+            raise ge
+        except Exception as ex:
+            print ex
+            raise ex
             
-        
+    

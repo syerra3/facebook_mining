@@ -14,6 +14,7 @@ class User:
     """ """
     def __init__(self):
         """ """
+        self.id = None
         self.name = None
         self.gender = None
         self.relationship_status = None
@@ -28,6 +29,8 @@ class User:
         self.languages = None
         self.work = None
         self.favorite_teams = None
+        self.work = None
+        self.education = None
     
     def __str__(self):
         """ """
