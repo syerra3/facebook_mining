@@ -33,6 +33,7 @@ chaldean_scores.append([0  ,6  ,9  ,0  ,0  ,8  ,2  ,0  ,5.5,10 ]) #7
 chaldean_scores.append([0  ,7.5,9  ,5  ,9  ,10 ,10 ,6.5,9  ,6  ]) #8
 chaldean_scores.append([0  ,0  ,0  ,7  ,0  ,6  ,8  ,10 ,6  ,10 ]) #9
 
+
 def sum_digits(n):
     """ """
     s = 0

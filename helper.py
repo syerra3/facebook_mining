@@ -95,6 +95,8 @@ class FacebookHelper:
             if "birthday" in profile.keys():
                 tokens = profile['birthday'].split('/',3) #m/d/Y
                 out.zodiac = get_zodiac_sign(int(tokens[1]),int(tokens[0]))
+                if len(tokens) == 3:
+                    out.age = datetime.date.today().year - int(tokens[2])                    
             if "hometown" in profile.keys():
                 hometown = profile["hometown"]
                 out.hometown = unicodedata.normalize('NFKD', hometown["name"]).encode('ascii','ignore')
@@ -124,11 +126,11 @@ class FacebookHelper:
             if "work" in profile.keys():
                 work = profile["work"]
                 if "position" in work[0].keys():
-                    out.work = work[0]["position"]["name"]
+                    out.work = unicodedata.normalize('NFKD',  work[0]["position"]["name"]).encode('ascii','ignore')                   
             if "education" in profile.keys():
                 education = profile["education"]
-                out.education =  education[len(education)-1]["type"]
-            print profile 
+                out.education = unicodedata.normalize('NFKD',  education[len(education)-1]["type"]).encode('ascii','ignore')
+            #print profile 
             return out
         except Exception as e:
             ex = model.AppException('Error while geting Facebook user:'+e.message)

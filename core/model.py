@@ -31,6 +31,7 @@ class User:
         self.favorite_teams = None
         self.work = None
         self.education = None
+        self.age = None
     
     def __str__(self):
         """ """
