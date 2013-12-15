@@ -6,7 +6,7 @@ class FacebookConnector:
     """ Class to communicate with Facebook REST API """
 
     #Facebook access token
-    ACCESS_TOKEN = 'CAAHZAkpHNzZBEBAKZAoZB6IZCs1aKcpcASY3tfcaFu4KOsbxeD2IFRbACruqYMburxhgL7mI36Qg1EurH2hZAjNWavaV97QCsoH3ZBI9dP1xK3p5ZAy1rozrH4wMw3QRhbXQICDJB6YqLIEBMFjRpDncvpt6HIKNKDX56bI3AH3QpjPZB0tZBe2NP4rw1i0pApI8Tz8fe50MSIAQZDZD'
+    ACCESS_TOKEN = 'CAAHZAkpHNzZBEBAKnMR9pf03N6sRkTXQc5FEiQUwquR5OB5kBZB99TW4mrPMChUKDVozAdRqez0rELyNDAcH8fxoraR0Eb9wZAF3au9tDzCun2X9QfshllOZC2rvBoFy2FhDbIsxRNjH8ZApwGtZBV8jg5kLHz23ylvN9KZA3X2IN6KiUz8lAtJJH6lh4nFDay0ZD'
 
     def __init__(self):
         """ constructor """
