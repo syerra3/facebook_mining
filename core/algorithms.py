@@ -33,6 +33,13 @@ chaldean_scores.append([0  ,6  ,9  ,0  ,0  ,8  ,2  ,0  ,5.5,10 ]) #7
 chaldean_scores.append([0  ,7.5,9  ,5  ,9  ,10 ,10 ,6.5,9  ,6  ]) #8
 chaldean_scores.append([0  ,0  ,0  ,7  ,0  ,6  ,8  ,10 ,6  ,10 ]) #9
 
+education_types = { 'School': 1,'High School' : 2, 'College': 3, 'Graduate School': 4}
+education_scores = list()
+education_scores.append([8,7,6,5,5]) # 0 
+education_scores.append([7,9,8,7,6]) # 1
+education_scores.append([7,8,9,8,7]) # 2
+education_scores.append([7,6,8,9,7]) # 3
+education_scores.append([5,6,7,8,9]) # 4
 
 def sum_digits(n):
     """ """
@@ -69,7 +76,18 @@ def get_similarity(list1 ,list2):
     set1,set2 = set(list1), set(list2)
     total, similarity = len(set1),  len(set1.intersection(set2))
     return  (similarity * 10.0 ) / total
-
+def get_education_compatibility(edu1, edu2):
+    """ """
+    if edu1 in education_types.keys():
+        val1 = education_types[edu1]
+    else:
+        val1 = 0
+    if edu2 in education_types.keys():
+        val2 = education_types[edu2]
+    else:
+        val2 = 0
+    scores = education_scores[val1]
+    return scores[val2]
 #print zodiac_signs['Pisces'],zodiac_signs['Aries'],zodiac_signs['Aquarius'],zodiac_signs['Capricorn'],zodiac_signs['Sagittarius'],zodiac_signs['Scorpio']
 #print get_zodiac_compatibility('Pisces','Aries')
 #print get_name_compatibility('Adam','Eve')
