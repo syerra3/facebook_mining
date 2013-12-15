@@ -50,7 +50,7 @@ def sum_digits(n):
     return s
 
 def get_chaldean_number(name):
-    """ """
+    """ return chaldean number for given name"""
     if name == None:
         return 0
     score = 0
@@ -62,22 +62,23 @@ def get_chaldean_number(name):
     return score
 
 def get_zodiac_compatibility(sign1 ,sign2):
-    """ """
+    """ returns zodiac compatibility """
     scores = zodiac_scores[zodiac_signs[sign1]]
     return scores[zodiac_signs[sign2]]
 
 def get_name_compatibility(name1 , name2):
-    """ """
+    """ returns name compatibility """
     scores = chaldean_scores[get_chaldean_number(name1)]
     return scores[get_chaldean_number(name2)]
 
 def get_similarity(list1 ,list2):
-    """ """
+    """ returns similarity in the given lists """
     set1,set2 = set(list1), set(list2)
     total, similarity = len(set1),  len(set1.intersection(set2))
     return  (similarity * 10.0 ) / total
+
 def get_education_compatibility(edu1, edu2):
-    """ """
+    """ return education compatibility """
     if edu1 in education_types.keys():
         val1 = education_types[edu1]
     else:
@@ -88,6 +89,7 @@ def get_education_compatibility(edu1, edu2):
         val2 = 0
     scores = education_scores[val1]
     return scores[val2]
+
 #print zodiac_signs['Pisces'],zodiac_signs['Aries'],zodiac_signs['Aquarius'],zodiac_signs['Capricorn'],zodiac_signs['Sagittarius'],zodiac_signs['Scorpio']
 #print get_zodiac_compatibility('Pisces','Aries')
 #print get_name_compatibility('Adam','Eve')

@@ -4,7 +4,7 @@ __name__ = "main"
 try:
     """ main module """
     manager = suggestion.SuggestionManager()
-    scores,suggestions = manager.get_compatibility("me",threshold = 60)
+    scores,suggestions = manager.get_compatibility("me",threshold = 70)
     if len(scores) > 0:
         print 'Most compatible people for you:'
         for k,v in scores.iteritems():

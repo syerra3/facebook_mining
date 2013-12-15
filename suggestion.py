@@ -62,12 +62,12 @@ class SuggestionManager:
                 else:
                     score += 3
                 #Sports
-                if user.sports is not None and friend.sports is not None:
-                    score += algorithms.get_similarity(user.sports, friend.sports)
-                else:
-                    score += 3
-                score = (score * 100.0)/70
-                print friend.name,friend.education, friend.work, friend.age, score
+                #if user.sports is not None and friend.sports is not None:
+                #    score += algorithms.get_similarity(user.sports, friend.sports)
+                #else:
+                #    score += 3
+                score = (score * 100.0)/60
+                #print friend.name,friend.education, friend.work, friend.age, score
                 if score >= threshold:
                     scores[friend.name] = score 
                     if friend.sports is not None:

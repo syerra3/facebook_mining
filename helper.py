@@ -7,7 +7,7 @@ import unicodedata
 
 
 def get_zodiac_sign(day, month):
-    """ """
+    """ returns zodiac for given date"""
     if month == 3: #March
         if day <= 20:
             return 'Pisces'
@@ -70,7 +70,7 @@ def get_zodiac_sign(day, month):
             return 'Pisces'
 
 class FacebookHelper:
-    """ """
+    """ construtor  """
     def __init__(self):
         """ """
         try:
@@ -80,7 +80,7 @@ class FacebookHelper:
             raise ex
 
     def get_facebook_user(self,id):
-        """ """
+        """ returns user model for given Facebook Id """
         try:
             profile = self.connector.get_user(id)
             out = model.User()
@@ -137,7 +137,7 @@ class FacebookHelper:
             raise ex
 
     def get_facebook_user_friends(self,id):
-        """ """
+        """ returns list of friends for give user """
         try:
             out = list()
             friends = self.connector.get_friends(id)
@@ -148,11 +148,3 @@ class FacebookHelper:
         except Exception as e:
             ex = model.AppException("Error while getting Facebook user's friends:"+e.message)
             raise ex
-
-    def execute_facebook_fql(self,fql):
-        """ """
-        try:
-            print self.connector.execute_fql(fql)
-        except Exception as e:
-            ex = model.AppException("Error while getting Facebook FQL:"+e.message)
-            raise ex 

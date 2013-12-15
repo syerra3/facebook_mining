@@ -3,7 +3,7 @@ __name__ = "model"
 
 
 class AppException(Exception):
-    """ """
+    """ Custom exception class """
     def __init__(self,value):
         self.message = value
 
@@ -11,9 +11,9 @@ class AppException(Exception):
         return repr(self.message)
 
 class User:
-    """ """
+    """ class represents Facebook user """
     def __init__(self):
-        """ """
+        """ constructor """
         self.id = None
         self.name = None
         self.gender = None
@@ -34,6 +34,6 @@ class User:
         self.age = None
     
     def __str__(self):
-        """ """
+        """ toString representation """
         return str(self.name)
         
