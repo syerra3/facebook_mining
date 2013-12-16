@@ -32,4 +32,4 @@ INSTALLATION AND EXECUTION:
   friends_work_history.
 5.Go to the code directory and open the connector.py file in the core folder. Paste the newly generated access token.
 6.Run the main.py file in the code directory. 
-7.You can change the threshold value in the main directory to filter the results accordingly. For example, for all resulyts, set the threshold value to 0. 
+7.You can change the threshold value in the main directory to filter the results accordingly. For example, for viewing all results, set the threshold value to 0. 
