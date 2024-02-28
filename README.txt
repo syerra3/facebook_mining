@@ -1,4 +1,6 @@
+# welcome team
 INSTALLATION AND EXECUTION:
+
 1.Download the facebook sdk for python from https://github.com/pythonforfacebook/facebook-sdk .
 2.Install the facebook sdk using pip install or easy_install.
 3.Create an application on facebook by logging in to your facebbok account as developer and get the access token for the app. 
